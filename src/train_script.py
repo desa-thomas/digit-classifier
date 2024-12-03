@@ -115,7 +115,7 @@ def validate(model, loader, criterion):
 
             #calculate the loss
             loss = criterion(outputs, labels)
-            valid_running_loss += 1
+            valid_running_loss += loss.item()
 
             #calculate the accuracy (how many correctly labled samples)
             _, preds = torch.max(outputs, dim= 1)
