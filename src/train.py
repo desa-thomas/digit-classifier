@@ -27,7 +27,7 @@ parser = argparse.ArgumentParser()
 #no. epochs
 parser.add_argument('-e', '--epochs', type = int, default = 1, help='number of epochs to train our network for')
 #which model
-parser.add_argument('-m', '--model', type = int, default=0, choices=[0], help="""0 - Fully Connected Network\n1 - CNN""")
+parser.add_argument('-m', '--model', type = int, default=0, choices=[0, 1], help="""0 - Fully Connected Network\n1 - CNN""")
 
 args = vars(parser.parse_args())
 
@@ -36,7 +36,10 @@ model_no = args['model']
 
 #create model objcect
 if(model_no == 0):
-    model = models.Fully_connected().to(device)
+    model = models.network_1().to(device)
+
+elif(model_no == 1):
+   model = models.network_2().to(device) 
 
 print(model)
 
