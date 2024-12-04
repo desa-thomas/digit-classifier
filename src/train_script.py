@@ -8,30 +8,36 @@ import numpy as np
 import pandas as pd
 import os
 
-    #Progress bar
+#Progress bar
 from tqdm.auto import tqdm
 
-import model
+import models
 from datasets import train_loader, test_loader
 import argparse
 
 #Set up global variables----------------------------------------------------------
 
-#cli variable for # of epochs
-parser = argparse.ArgumentParser()
-parser.add_argument('-e', '--epochs', type = int, default = 1, help='number of epochs to train our network for')
-args = vars(parser.parse_args())
-
-#path to output folder where model will be saved
 output_path = os.path.dirname(__file__) + '\\..\\outputs'
-
 lr = 1e-3
-epochs = args['epochs']
 device = ('cuda' if torch.cuda.is_available() else 'cpu')
 print(f'Computation device: {device}\n')
 
+#cli variables
+parser = argparse.ArgumentParser()
+#no. epochs
+parser.add_argument('-e', '--epochs', type = int, default = 1, help='number of epochs to train our network for')
+#which model
+parser.add_argument('-m', '--model', type = int, default=0, choices=[0], help="""0 - Fully Connected Network\n1 - CNN""")
+
+args = vars(parser.parse_args())
+
+epochs = args['epochs']
+model_no = args['model']
+
 #create model objcect
-model = model.digit_classifier().to(device)
+if(model_no == 0):
+    model = models.Fully_connected().to(device)
+
 print(model)
 
 #calculate the total number of parameters (numel() calculates the number of values in a tensor)
@@ -45,6 +51,7 @@ print(f"{total_trainable_parameters} training parameters")
 optimizer = optim.Adam(model.parameters(), lr =lr)
 criterion = nn.CrossEntropyLoss()
 
+#-----------------------------------------------------------------------------------------------
 def train(model, loader, optimizer, criterion): 
     """
     Training loop for a single epoch
@@ -138,9 +145,11 @@ def save_model(epochs, model, optimizer, criterion):
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
         'loss': criterion,
-    }, output_path + '\\model.pth')
+    }, output_path + f'\\model_{model_no}.pth')
 
-#-----TRAINING LOOP--------
+#-----TRAINING LOOP-------------------------------------------------
+
+#Loss and accuracy per epoch of model
 train_loss, valid_loss = [], []
 train_acc, valid_acc = [], []
 
@@ -165,8 +174,10 @@ for epoch in range(epochs):
 stop = time.perf_counter()
 print(f"TRAIN COMPLETE\nTraining time: {stop-start}")
 
+#Save model and loss and accuracy data
 save_model(epochs, model, optimizer, criterion)
 
 table = np.stack([train_loss, train_acc, valid_loss, valid_acc]).T
 df = pd.DataFrame(data = table, columns=['Train loss', 'train accuracy', 'valid loss', 'valid accuracy'])
-df.to_csv(output_path + '\\train_stats.csv')
+
+df.to_csv(output_path + f'\\model_{model_no}_stats.csv')
