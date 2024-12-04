@@ -3,7 +3,7 @@ import torch.nn as nn
 #Utility functions
 import torch.nn.functional as f
 
-class Fully_connected(nn.Module):
+class network_1(nn.Module):
     """
     Simple neural network with 2 hidden fully connected / linear layers. 
     """
@@ -48,3 +48,22 @@ class Fully_connected(nn.Module):
 
         return x
 
+class network_2(nn.Module):
+    """
+    Another Fully connected NN, but this one has 1 hidden layer the size of 
+    the mean of the input and output sizes(input + output)/2
+    """
+    def __init__(self):
+        super().__init__()
+
+        self.layer1 = nn.Linear(784, 397)
+        self.outlayer = nn.Linear(397, 10)
+
+    def forward(self, x : torch.Tensor):
+        x = torch.flatten(x, start_dim=1)
+        x = f.relu(self.layer1(x))
+        x = f.relu(self.outlayer(x))
+        x = f.softmax(x, dim=1)
+
+        return x
+   
