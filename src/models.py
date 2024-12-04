@@ -3,7 +3,7 @@ import torch.nn as nn
 #Utility functions
 import torch.nn.functional as f
 
-class digit_classifier(nn.Module):
+class Fully_connected(nn.Module):
     """
     Simple neural network with 2 hidden fully connected / linear layers. 
     """
