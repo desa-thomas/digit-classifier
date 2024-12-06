@@ -1,3 +1,4 @@
+#Dataset, model training stats, and test notebook
 model/MNIST_dataset
 model/outputs/*.csv
 model/notebooks/notebook.ipynb

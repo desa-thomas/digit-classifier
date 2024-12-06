@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import cv2
 
 app = Flask(__name__)
 
@@ -14,6 +15,12 @@ def upload_image():
 
     #get image from request
     image_file = request.files['image']
+
+    try: 
+        image = cv2.imread(image_file)
+
+    except Exception as e: 
+        return jsonify({'error': str(e)}), 500
     
 
 if __name__ =='__main__':
