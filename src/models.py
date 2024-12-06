@@ -66,4 +66,46 @@ class network_2(nn.Module):
         x = f.softmax(x, dim=1)
 
         return x
-   
+
+class network_3(nn.Module):
+    """
+    Fully connected NN with 3 hidden layers with nodes in decreasing powers of 2,
+    from 128 to 64 to 32
+    """
+    def __init__(self):
+        super().__init__()
+        self.layer1 = nn.Linear(784, 32)
+        self.layer2 = nn.Linear(32, 64)
+        self.layer3 = nn.Linear(64, 128)
+        self.outlayer = nn.Linear(128, 10)
+
+    def forward(self, x: torch.Tensor):
+        x = torch.flatten(x, start_dim=1)
+        x = f.relu(self.layer1(x))
+        x = f.relu(self.layer2(x))
+        x = f.relu(self.layer3(x))
+        x = f.relu(self.outlayer(x))
+        x = f.softmax(x, dim=1)
+
+        return x
+
+class CNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        ##2d Convolutional layer
+        #out_channels = number of filters
+        #kernel_size = size of convolution matrix (3x3)
+        self.conv1 = nn.Conv2d(1, out_channels=8, kernel_size=3, stride=1, padding=1)
+        
+        #pooling function
+        #Stride = number of pixels to move the kernel (subset of pixel matrix we are pooling) over each time (stride = kernel for no overlap)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+
+        #output shape after convoluational layer and pooling: (N, out_channles, H/2, W/2)
+        self.fc1 = nn.Linear((28/2)**2, 10)
+    
+    def forward(self, x : torch.Tensor):
+        x = self.conv1(x)
+        x = self.pool(x)
+
+        return x
