@@ -1,5 +1,6 @@
-/MNIST_dataset
-/outputs
-/__pycache__
+model/MNIST_dataset
+model/outputs/*.csv
+model/notebooks/notebook.ipynb
 
-notebook.ipynb
+**/__pycache__
+
