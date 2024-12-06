@@ -4,8 +4,18 @@ Although I originally started this repository to create one simple network to tr
 
 Since the network performed so well I decided to make an API so that I can develop a small application around the model.
 
-### Original README: MNIST Simple Neural Network
+## Project Tree
+```bash
+├───backend
+│   ├───templates
+└───model
+    ├───notebooks
+    ├───outputs
+    └───src
+```
 
+### Original README: MNIST Simple Neural Network
+---
 
 A simple neural network to classify handwritten digit, made with PyTorch and trained on a subset of the MNIST dataset.
 
