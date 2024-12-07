@@ -24,10 +24,11 @@ def upload_image():
        
         img_arr = np.frombuffer(img_bytes, dtype=np.uint8)
         image = cv2.imdecode(img_arr, cv2.IMREAD_GRAYSCALE)
-        
+
+
         prediction = model.predict(image)
         
-        return jsonify({'message': "Image uploaded successfully"}), 200
+        return jsonify({'message': "Image uploaded successfully", "prediction": prediction}), 200
     else:
         return jsonify({'error': "No image data found"}), 400
 
