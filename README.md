@@ -1,5 +1,5 @@
 # Digit Classifier
-Contains a few different neural networks trained on the MNIST dataset to classify hand written digits. The best performing network was a convolutional network with 3 hidden layers which had a validation accuracy of 98%. 
+Contains a few different neural networks trained on the MNIST dataset to classify hand written digits. The best performing network was a convolutional network with 3 hidden layers which had an accuracy of 98% on the testing dataset
 
 Since the network performed so well I decided to make an API so that I can develop a small application around the model.
 
