@@ -1,9 +1,9 @@
 const URL = "http://127.0.0.1:5000"
 
 document.addEventListener('DOMContentLoaded', () => {    
-
+    
     const canvas = document.getElementById('drawingCanvas');
-    size = screen.width*0.3; 
+    size = screen.width*0.25; 
     canvas.width = size; 
     canvas.height = size; 
     const ctx = canvas.getContext('2d');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillRect(0,0,canvas.width,canvas.height)
 
     ctx.strokeStyle = 'white';
-    ctx.lineWidth = 10;
+    ctx.lineWidth = Math.floor(size/28) * 2.5
     ctx.lineCap = 'round';  
 
     //mouse listeners on canvas
@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //clear button clears canvas
     document.getElementById('clearButton').addEventListener('click', () =>{
-        console.log('here')
         ctx.fillRect(0,0, canvas.width, canvas.height)
+        document.getElementById('prediction').innerHTML = ''
+        document.getElementById('pred-div').hidden = true
     })
 
     //classify button saves pixel data then sends it to the server with an http request
     document.getElementById('classifyButton').addEventListener('click', ()=>{
-        console.log('classify')
         //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
@@ -76,8 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data =>{
-            console.log('Data Received;', data);
-            console.log()
+            document.getElementById('pred-div').hidden = false
+
+            prediction  = data['prediction']
+            pred_element = document.getElementById('prediction')
+            pred_element.innerHTML = 'You drew the number ' + prediction
         })
         .catch(error =>{
             console.error('there was a problem with the fetch operation:', error)
