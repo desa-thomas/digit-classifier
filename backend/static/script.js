@@ -1,9 +1,21 @@
-const URL = "http://127.0.0.1:5000"
+const dev_URL = "http://127.0.0.1:5000"
+const local_URL = 'localhost:8080'
+
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 document.addEventListener('DOMContentLoaded', () => {    
     
     const canvas = document.getElementById('drawingCanvas');
-    size = screen.width*0.25; 
+    if (isMobileDevice()){
+        size = screen.width*0.75; 
+        document.body.style.overflow = 'hidden'; 
+    }
+    else{
+        size = screen.width*0.25; 
+    }
+
     canvas.width = size; 
     canvas.height = size; 
     const ctx = canvas.getContext('2d');
@@ -61,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
-       fetch(URL +'/classify',{
+       fetch(local_URL +'/classify',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
