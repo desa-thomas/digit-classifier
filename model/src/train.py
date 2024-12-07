@@ -149,12 +149,7 @@ def save_model(epochs, model, optimizer, criterion):
     Function to save model
     """
 
-    torch.save({
-        'epoch': epochs,
-        'model_state_dict': model.state_dict(),
-        'optimizer_state_dict': optimizer.state_dict(),
-        'loss': criterion,
-    }, output_path + f'\\model_{model_no}.pth')
+    torch.save(model.state_dict(), output_path + f'\\model_{model_no}.pth')
 
 #-----TRAINING LOOP-------------------------------------------------
 
