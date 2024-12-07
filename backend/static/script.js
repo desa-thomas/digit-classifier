@@ -3,13 +3,17 @@ const URL = "http://127.0.0.1:5000"
 document.addEventListener('DOMContentLoaded', () => {    
 
     const canvas = document.getElementById('drawingCanvas');
+    size = screen.width*0.3; 
+    canvas.width = size; 
+    canvas.height = size; 
     const ctx = canvas.getContext('2d');
 
     let drawing = false;
 
     //drawing context variables
-    ctx.fillstyle = 'black';
+    ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height)
+
     ctx.strokeStyle = 'white';
     ctx.lineWidth = 10;
     ctx.lineCap = 'round';  
@@ -18,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.addEventListener('mousedown', () => {drawing = true});
     canvas.addEventListener('mouseup', ()=> {drawing = false; ctx.beginPath();});
     canvas.addEventListener('mousemove', draw);
+
+    canvas.addEventListener('pointerdown', ()=> {drawing = true; ctx.beginPath();}); 
+    canvas.addEventListener('pointerup', ()=>{drawing = false; ctx.closePath();} );
+    canvas.addEventListener('pointerleave', ()=>{drawing = false})
+    canvas.addEventListener('pointermove', draw)
 
     function draw(event){
         if(!drawing) return; 
@@ -42,13 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //clear button clears canvas
     document.getElementById('clearButton').addEventListener('click', () =>{
-        ctx.clearRect(0,0, canvas.width, canvas.height)
+        console.log('here')
+        ctx.fillRect(0,0, canvas.width, canvas.height)
     })
 
     //classify button saves pixel data then sends it to the server with an http request
     document.getElementById('classifyButton').addEventListener('click', ()=>{
-
-       //Encode image to base64
+        console.log('classify')
+        //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
        fetch(URL +'/classify',{
@@ -67,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data =>{
             console.log('Data Received;', data);
+            console.log()
         })
         .catch(error =>{
             console.error('there was a problem with the fetch operation:', error)
