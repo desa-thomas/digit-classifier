@@ -1,0 +1,6 @@
+torch
+torchvision
+Flask
+opencv-python
+numpy
+waitress
