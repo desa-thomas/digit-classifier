@@ -87,3 +87,28 @@ button:focus {
     outline: none; /* Remove default focus outline */
     border: 2px solid #3498db; /* Custom focus border */
 }
+
+/* Style for the prediction div and p */
+.prediction-div {
+    background-color: #333; /* Dark background for the prediction area */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Add some padding for spacing */
+    margin-top: 15px; /* Add space above the prediction area */
+    width: 80%; /* Set width to 80% of the container */
+    max-width: 500px; /* Max width to avoid excessive stretch */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+/* Style for the p element that displays the prediction */
+#prediction {
+    font-size: 2rem; /* Larger font size for the prediction */
+    font-weight: 700; /* Bold text for emphasis */
+    color: #e98bb8; /* Gold/orange color for the prediction text */
+    letter-spacing: 2px; /* Add letter spacing for a more polished look */
+    margin: 0; /* Remove margin */
+    text-transform: uppercase; /* Uppercase text for a cleaner look */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+
