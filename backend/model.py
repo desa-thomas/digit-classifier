@@ -3,8 +3,8 @@ import os
 import torch
 from torchvision import transforms
 
-pth_path = os.getcwd() + "\\model\\outputs\\CNN.pth"
-mod_path = os.getcwd() + "\\model\\src\\models.py"
+pth_path =  os.path.dirname(__file__) + "\\..\\model\\outputs\\CNN.pth"
+mod_path =  os.path.dirname(__file__) + "\\..\\model\\src\\models.py"
 mod_name = "models"
 
 spec = importlib.util.spec_from_file_location(mod_name, mod_path)
@@ -23,13 +23,10 @@ model.load_state_dict(torch.load(pth_path))
 
 def predict(input):
     processed_img = transformations(input).unsqueeze(0) #add batch dim
-
+    
     model.eval()
     with torch.inference_mode():
         output = model(processed_img)
-        print(output.shape)
         _, preds = torch.max(output, dim= 1)
-
-        print(preds.item())
 
     return preds.item()
