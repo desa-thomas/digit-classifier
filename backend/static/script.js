@@ -1,5 +1,5 @@
 const dev_URL = "http://127.0.0.1:5000"
-const local_URL = 'localhost:8080'
+const local_URL = "http://localhost:8080/"
 
 function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
