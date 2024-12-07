@@ -3,17 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Digit Classifier</title>
 
     <script src="{{url_for('static', filename='script.js')}}"></script>
     <link rel='stylesheet' href="{{url_for('static', filename='style.css')}}"/>
 </head>
 
 <body>
-    <h1>Landing page</h1>
-    <canvas id='drawingCanvas' width="280" height="280"></canvas>
-    <button id ='clearButton'>Clear</button>
-    <button id="">Classify</button>
+    <div class = 'container'>
+        <div class = 'centered-div'>
+            <h1>Digit Classifier</h1>
+            <canvas id='drawingCanvas' width="280" height="280"></canvas>
+        </div>
+        <div id = 'buttons'>
+            <button id ='clearButton'>Clear</button>
+            <button id="classifyButton">Classify</button>
+        </div>
+        <div class = 'prediction-div'>
+            <p id =prediction></p>
+        </div>
+    </div>
+
 
 </body>
 </html>
