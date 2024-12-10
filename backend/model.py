@@ -2,10 +2,10 @@ import importlib.util
 import os
 import torch
 import torch.nn as nn
-import torch.functional as f
+import torch.nn.functional as f
 from torchvision import transforms
 
-pth_path =  os.path.dirname(__file__) + "CNN.pth"
+pth_path =  os.path.dirname(__file__) + "\\CNN.pth"
 
 class CNN(nn.Module):
     def __init__(self):

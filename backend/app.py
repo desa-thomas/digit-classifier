@@ -37,7 +37,6 @@ def upload_image():
         return jsonify({'error': "No image data found"}), 400
 
 if __name__ =='__main__':
-    print('running on: http://localhost:8080/')
     serve(app, host = "0.0.0.0", port=8080)
 
     #Development server
