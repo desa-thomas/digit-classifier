@@ -4,3 +4,4 @@ Flask
 opencv-python
 numpy
 waitress
+flask_cors
