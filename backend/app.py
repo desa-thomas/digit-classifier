@@ -1,11 +1,13 @@
 import base64
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import cv2
 import numpy as np
 import model
 from waitress import serve
 
 app = Flask(__name__)
+CORS(app)
 
 #page index
 @app.route('/')
