@@ -1,5 +1,6 @@
 const api_URL = 'https://digit-classifier-fw6f.onrender.com'
 const debugging_URL = 'http://127.0.0.1:5000'
+const waitress_debugging_URL = 'http://localhost:8080'
 
 const serve_URL = api_URL
 
