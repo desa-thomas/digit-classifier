@@ -12,6 +12,7 @@ from apscheduler.triggers.interval import IntervalTrigger
 import requests
 import atexit
 import threading
+import sys
 
 app = Flask(__name__)
 CORS(app)
@@ -27,7 +28,7 @@ def poke_server():
         #debugging
         # API_URL = 'http://localhost:8080/poke'
         response = requests.get(API_URL)
-        print(response.status_code, response.json()['message'])
+        print(response.status_code, response.json()['message'], file=sys.stderr)
     
     except Exception as e:
         print(f'Error while poking server: {e}')
@@ -44,7 +45,7 @@ def start_scheduler():
         replace_existing=True
     )
     scheduler.start()
-    print("Started poking server in background thread...")
+    print("Started poking server in background thread...", file=sys.stderr)
 
     return
 
