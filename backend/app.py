@@ -23,8 +23,9 @@ scheduler = BackgroundScheduler()
 def poke_server():
     """function to poke server"""
     try:
-        # API_URL = 'https://digit-classifier-fw6f.onrender.com/poke'
-        API_URL = 'http://localhost:8080/poke'
+        API_URL = 'https://digit-classifier-fw6f.onrender.com/poke'
+        #debugging
+        # API_URL = 'http://localhost:8080/poke'
         response = requests.get(API_URL)
         print(response.status_code, response.json()['message'])
     
