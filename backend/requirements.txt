@@ -6,3 +6,4 @@ numpy
 waitress
 flask_cors
 apscheduler
+requests
