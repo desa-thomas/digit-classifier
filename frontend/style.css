@@ -112,3 +112,22 @@ button:focus {
 }
 
 
+/* Spinner Styles */
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey background */
+    border-top: 8px solid #3498db; /* Blue color for the animated part */
+    border-radius: 50%; /* Make it circular */
+    width: 30px; /* Diameter */
+    height: 30px; /* Diameter */
+    animation: spin 1s linear infinite; /* Animation name, duration, and repeat */
+}
+
+/* Keyframes for spinning */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

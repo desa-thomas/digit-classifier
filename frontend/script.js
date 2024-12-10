@@ -69,7 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //classify button saves pixel data then sends it to the server with an http request
     document.getElementById('classifyButton').addEventListener('click', ()=>{
-        //Encode image to base64
+        
+        const spinner = document.getElementById('spinner')
+        const buttons = document.getElementById('buttons')
+        spinner.hidden = false
+        buttons.hidden = true
+        
+       //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
        fetch(api_URL +'/classify',{
@@ -87,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data =>{
+            spinner.hidden = true
+            buttons.hidden = false
+
             document.getElementById('pred-div').hidden = false
 
             prediction  = data['prediction']
