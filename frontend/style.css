@@ -1,0 +1,114 @@
+/* Style for the canvas element */
+canvas {
+    border: 2px solid  #ffffff; /* Retain the blue border */
+    border-radius: 10px; /* Rounded corners for a softer appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+    background-color: #2e2e2e; /* Darker background for canvas */
+    display: block; /* Makes the canvas behave as a block-level element */
+    margin: 20px auto; /* Center the canvas horizontally with space around it */
+    cursor: crosshair;
+}
+
+/* Dark-themed body background */
+body {
+    background-color: #2c2c2c; /* Dark gray background for a modern look */
+    color: #fff; /* Light text color for readability */
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for centering the content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Centered div for any content */
+.centered-div {
+    text-align: center;
+}
+
+/* Heading style */
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean modern font */
+    font-size: 3rem; /* Large text for emphasis */
+    font-weight: 700; /* Bold text */
+    color: #fff; /* Light text color */
+    text-align: center;
+    margin: 20px 0; /* Top and bottom spacing */
+    padding: 10px 20px; /* Padding for some breathing space */
+    background: linear-gradient(45deg, #d4c1c9, #ee0979); /* Modern gradient background */
+    color: transparent; /* Make the text transparent for gradient effect */
+    -webkit-background-clip: text; /* Apply gradient to text */
+    background-clip: text; /* Apply gradient to text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+    letter-spacing: 2px; /* Increase letter spacing for a more modern feel */
+    text-transform: uppercase; /* Uppercase text */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Basic button styling */
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    font-size: 1rem; /* Medium font size */
+    font-weight: 600; /* Semi-bold text */
+    padding: 12px 24px; /* Generous padding */
+    border: none; /* Remove default border */
+    border-radius: 50px; /* Rounded corners */
+    background: #e98bb8; /* Blue background */
+    color: white; /* White text */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    outline: none; /* Remove outline on focus */
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+}
+
+/* Hover effect */
+button:hover {
+    background: #2980b9; /* Darker blue on hover */
+    transform: translateY(-3px); /* Slightly lift the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    transition: all 0.2s ease; /* Faster transition on hover */
+}
+
+/* Active effect (when the button is clicked) */
+button:active {
+    transform: translateY(1px); /* Slightly push down the button */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Reduce shadow on click */
+}
+
+/* Focus effect (for accessibility) */
+button:focus {
+    outline: none; /* Remove default focus outline */
+    border: 2px solid #3498db; /* Custom focus border */
+}
+
+/* Style for the prediction div and p */
+.prediction-div {
+    background-color: #333; /* Dark background for the prediction area */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Add some padding for spacing */
+    margin-top: 15px; /* Add space above the prediction area */
+    width: 80%; /* Set width to 80% of the container */
+    max-width: 500px; /* Max width to avoid excessive stretch */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+/* Style for the p element that displays the prediction */
+#prediction {
+    font-size: 2rem; /* Larger font size for the prediction */
+    font-weight: 700; /* Bold text for emphasis */
+    color: #e98bb8; /* Gold/orange color for the prediction text */
+    letter-spacing: 2px; /* Add letter spacing for a more polished look */
+    margin: 0; /* Remove margin */
+    text-transform: uppercase; /* Uppercase text for a cleaner look */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+
