@@ -130,7 +130,6 @@ function getBoundingBoxDataURL(canvas, ctx) {
     // Get the Data URL for the cropped region
     const dataURL = tempCanvas.toDataURL('image/png');
 
-    document.getElementById('test').href = dataURL
     return dataURL;
   }
 
