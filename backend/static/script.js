@@ -1,5 +1,5 @@
-const dev_URL = "http://127.0.0.1:5000"
-const local_URL = "http://localhost:8080/"
+const waitress_URL = "http://localhost:8080"
+const local_URL = "http://127.0.0.1:5000"
 
 function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
-       fetch(local_URL +'/classify',{
+       fetch(waitress_URL +'/classify',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
