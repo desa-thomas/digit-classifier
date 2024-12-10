@@ -1,4 +1,7 @@
 const api_URL = 'https://digit-classifier-fw6f.onrender.com'
+const debugging_URL = 'http://127.0.0.1:5000'
+
+const serve_URL = api_URL
 
 function isMobileDevice() {
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -8,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const canvas = document.getElementById('drawingCanvas');
     if (isMobileDevice()){
-        size = screen.width*0.75; 
-        document.body.style.overflow = 'hidden'; 
+        size = screen.width*0.75;  
     }
     else{
         size = screen.width*0.25; 
@@ -78,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
        //Encode image to base64
        const imgData =  canvas.toDataURL("image/png")
 
-       fetch(api_URL +'/classify',{
+       fetch(serve_URL +'/classify',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -7,6 +7,7 @@ canvas {
     display: block; /* Makes the canvas behave as a block-level element */
     margin: 20px auto; /* Center the canvas horizontally with space around it */
     cursor: crosshair;
+    touch-action: none;
 }
 
 /* Dark-themed body background */
@@ -23,7 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 95vh;
     flex-direction: column;
 }
 
@@ -39,8 +40,8 @@ h1 {
     font-weight: 700; /* Bold text */
     color: #fff; /* Light text color */
     text-align: center;
-    margin: 20px 0; /* Top and bottom spacing */
-    padding: 10px 20px; /* Padding for some breathing space */
+    margin: 1vh 0; /* Top and bottom spacing */
+    padding: 0px 10px; /* Padding for some breathing space */
     background: linear-gradient(45deg, #d4c1c9, #ee0979); /* Modern gradient background */
     color: transparent; /* Make the text transparent for gradient effect */
     -webkit-background-clip: text; /* Apply gradient to text */
