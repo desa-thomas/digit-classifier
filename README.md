@@ -4,7 +4,7 @@
   <h3 align="center">Digit-Classifier</h3>
 
   <p align="center">
-    A web application to showcase a simple neural network I built and trained to classify handwritten digits!
+    A web application to showcase a neural network I built and trained to classify handwritten digits!
     <br />
     <a href="https://desa-thomas.github.io/digit-classifier/"><strong>Check it out»</strong></a>
     <br />
