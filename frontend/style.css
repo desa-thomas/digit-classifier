@@ -132,3 +132,10 @@ button:focus {
         transform: rotate(360deg);
     }
 }
+
+#instructions {
+    font-size: 1rem; 
+    font-weight: 200; 
+    color: #ffffff;
+    letter-spacing: 2px;
+}
