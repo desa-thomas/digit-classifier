@@ -42,6 +42,12 @@ If you want to check out the application and try the model you can go to the [Gi
 
 ## License
 
+MIT License
+
+Copyright (c) 2024 Thomas De Sa
+
+See `LICENSE.md` for more details
+
 ## Contact
 
 Thomas De Sa - desa2thomas@gmail.com
