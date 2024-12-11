@@ -16,7 +16,7 @@
 </div>
 
 ## About 
-
+**Digit Classifier** is a machine learning project that leverages a Convolutional Neural Netowrk trained on the MNIST dataset to recognize handwritten drawn by the user on the web application
 ### Built With
 * ![Static Badge](https://img.shields.io/badge/Flask%20-%20black?style=for-the-badge&logo=flask&logoColor=white)
 * ![Static Badge](https://img.shields.io/badge/PyTorch%20-%20red?style=for-the-badge&logo=pytorch&logoColor=white)
